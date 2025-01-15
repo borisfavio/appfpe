@@ -1,0 +1,14 @@
+{
+    "description": "Aplicacion de gestion de Fundacion",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Favio Santos"
+        }
+    ],
+    "require": {}
+}
