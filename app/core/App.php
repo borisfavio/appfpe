@@ -4,7 +4,7 @@ namespace App\Core;
 
 class App
 {
-    protected $controller = 'ProductController';
+    protected $controller = 'AppController';
     protected $method = 'index';
     protected $params = [];
 

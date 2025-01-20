@@ -1,37 +1,32 @@
 <?php
 
-namespace app\core;
+namespace App\Core;
 
 use PDO;
 use PDOException;
 
 class Database
 {
-    private $host = 'localhost'; // Cambia por tu host
-    private $dbname = 'nombre_de_tu_base'; // Cambia por el nombre de tu base de datos
-    private $user = 'postgres'; // Cambia por tu usuario
-    private $password = 'tu_contraseña'; // Cambia por tu contraseña
-    private $connection;
+    private $host = 'localhost';
+    private $dbName = 'fundacion_db';
+    private $username = 'root'; // O 'root' si no creaste un usuario
+    private $password = ''; // Cambia esto por tu contraseña
+    private $charset = 'utf8mb4';
+    private $pdo;
 
-    public function __construct()
+    public function connect()
     {
-        try {
-            $dsn = "pgsql:host={$this->host};dbname={$this->dbname}";
-            $this->connection = new PDO($dsn, $this->user, $this->password);
-            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die("Error al conectar con la base de datos: " . $e->getMessage());
+        if ($this->pdo === null) {
+            try {
+                $dsn = "mysql:host={$this->host};dbname={$this->dbName};charset={$this->charset}";
+                $this->pdo = new PDO($dsn, $this->username, $this->password, [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                ]);
+            } catch (PDOException $e) {
+                die('Error de conexión: ' . $e->getMessage());
+            }
         }
-    }
-
-    public function query($sql, $params = [])
-    {
-        try {
-            $stmt = $this->connection->prepare($sql);
-            $stmt->execute($params);
-            return $stmt;
-        } catch (PDOException $e) {
-            die("Error en la consulta: " . $e->getMessage());
-        }
+        return $this->pdo;
     }
 }

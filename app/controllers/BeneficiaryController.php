@@ -2,21 +2,21 @@
 
 namespace App\Controllers;
 
-use App\Models\Product;
+use App\Models\Beneficiary;
 
-class ProductController
+class BeneficiaryController
 {
-    private $product;
+    private $beneficiary;
 
     public function __construct()
     {
-        $this->product = new Product();
+        $this->beneficiary = new Beneficiary();
     }
     
     public function index()
     {
-        $products = $this->product->getAll();
-        include __DIR__ . '/../views/product/index.php';
+        $beneficiaries = $this->beneficiary->getAll();
+        include __DIR__ . '/../views/beneficiaries/index.php';
     }
 
     public function create()

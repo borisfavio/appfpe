@@ -6,7 +6,7 @@ $title = 'Lista de Productos';
 
 ob_start(); // Captura el contenido dinámico
 ?>
-<h1>Lista de Productos</h1>
+<h1>Lista de beneficiarios</h1>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -18,12 +18,13 @@ ob_start(); // Captura el contenido dinámico
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
+                                            <th>ID</th>
+                                            <th>Codigo</th>
+                                            <th>Nombres</th>
+                                            <th>Tutor</th>
                                             <th>Age</th>
                                             <th>Start date</th>
-                                            <th>Salary</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -37,12 +38,12 @@ ob_start(); // Captura el contenido dinámico
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    <?php foreach ($products as $product): ?>
+                                    <?php foreach ($beneficiaries as $beneficiary): ?>
                                         <tr>
-                                            <td><?php echo $product['id']; ?></td>
-                                            <td><?php echo $product['nombre']; ?></td>
-                                            <td><?php echo $product['nombre']; ?></td>
-                                            <td><?php echo $product['id']; ?></td>
+                                            <td><?php echo $beneficiary['id']; ?></td>
+                                            <td><?php echo $beneficiary['codigo']; ?></td>
+                                            <td><?php echo $beneficiary['nombres']; ?></td>
+                                            <td><?php echo $beneficiary['tutor']; ?></td>
                                             <td>
                                                 <a href="/product/edit/<?php echo $product['id']; ?>" class="btn btn-primary btn-sm">Editar</a>
                                                 <a href="/product/delete/<?php echo $product['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>

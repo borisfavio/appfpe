@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Core\Database;
 
-class Product
+class Beneficiary
 {
     private $db;
 
@@ -15,7 +15,7 @@ class Product
 
     public function getAll()
     {
-        $query = $this->db->query("SELECT * FROM products");
+        $query = $this->db->query("SELECT * FROM beneficiario");
         return $query->fetchAll();
     }
 
