@@ -2,11 +2,11 @@
 <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 <?php
-$title = 'Lista de Productos';
+$title = 'Grupos';
 
 ob_start(); // Captura el contenido dinámico
 ?>
-<h1>Lista de beneficiarios</h1>
+<h1>Lista de Grupos</h1>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -18,13 +18,12 @@ ob_start(); // Captura el contenido dinámico
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Codigo</th>
-                                            <th>Nombres</th>
-                                            <th>Tutor</th>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
                                             <th>Age</th>
                                             <th>Start date</th>
-                                            
+                                            <th>Salary</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -38,15 +37,15 @@ ob_start(); // Captura el contenido dinámico
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    <?php foreach ($beneficiaries as $beneficiary): ?>
+                                    <?php foreach ($groups as $group): ?>
                                         <tr>
-                                            <td><?php echo $beneficiary['id']; ?></td>
-                                            <td><?php echo $beneficiary['codigo']; ?></td>
-                                            <td><?php echo $beneficiary['nombres']; ?></td>
-                                            <td><?php echo $beneficiary['tutor_id']; ?></td>
+                                            <td><?php echo $group['id']; ?></td>
+                                            <td><?php echo $group['nombres']; ?></td>
+                                            <td><?php echo $group['id_tutor']; ?></td>
+                                            <td><?php echo $group['id_programa']; ?></td>
                                             <td>
-                                                <a href="index.php?url=beneficiary/edit/<?php echo $beneficiary['id']; ?>" class="btn btn-primary btn-sm">Editar</a>
-                                                <a href="/beneficiary/delete/<?php echo $beneficiary['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                                                <a href="/product/edit/<?php echo $group['id']; ?>" class="btn btn-primary btn-sm">Editar</a>
+                                                <a href="/product/delete/<?php echo $group['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>

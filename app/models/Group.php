@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Core\Database;
 
-class Beneficiary
+class Group
 {
     private $db;
 
@@ -15,7 +15,7 @@ class Beneficiary
 
     public function getAll()
     {
-        $query = $this->db->query("SELECT * FROM beneficiarios");
+        $query = $this->db->query("SELECT * FROM grupos");
         return $query->fetchAll();
     }
 
@@ -29,9 +29,9 @@ class Beneficiary
         ]);
     }
 
-    public function getById($id)
+    public function find($id)
     {
-        $stmt = $this->db->prepare("SELECT * FROM beneficiarios WHERE id = :id");
+        $stmt = $this->db->prepare("SELECT * FROM products WHERE id = :id");
         $stmt->execute(['id' => $id]);
         return $stmt->fetch();
     }
