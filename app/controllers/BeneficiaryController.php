@@ -36,6 +36,13 @@ class BeneficiaryController
         include __DIR__ . '/../views/beneficiaries/edit.php';
     }
 
+    public function view($id)
+    {
+        $beneficiaryModel = new Beneficiary();
+        $beneficiary = $beneficiaryModel->getById($id);
+        include __DIR__ . '/../views/beneficiaries/view.php';
+    }
+
     public function update($id)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

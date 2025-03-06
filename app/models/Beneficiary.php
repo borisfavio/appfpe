@@ -31,7 +31,7 @@ class Beneficiary
 
     public function getById($id)
     {
-        $stmt = $this->db->prepare("SELECT * FROM beneficiarios WHERE id = :id");
+        $stmt = $this->db->prepare("CALL ObtenerDatosBeneficiario(:id)");
         $stmt->execute(['id' => $id]);
         return $stmt->fetch();
     }
